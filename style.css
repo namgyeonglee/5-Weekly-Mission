@@ -260,3 +260,18 @@ footer {
   gap: 12px;
 }
 
+/* Tablet */
+
+@media (max-width: 1199px) {
+  header {
+    display: flex;
+    padding: 20px 32px;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    background: var(--Gray5);
+    position: sticky;
+    top: 0;
+  }
+}
