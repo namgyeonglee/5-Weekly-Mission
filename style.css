@@ -340,4 +340,13 @@ footer {
   .footer-contents {
     padding: 32px 32px 108px 32px;
   }
+
+  /* 심화 요구사항 */
+  .main2-contents .main2-img {
+    order: 2;
+  }
+
+  .main4-contents .main4-img {
+    order: 2;
+  }
 }
