@@ -9,6 +9,8 @@ body {
   font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
 }
 
+/* 데스크탑 */
+
 main {
   margin: 238px auto;
   text-align: center;
@@ -155,4 +157,12 @@ i {
   display: flex;
   gap: 16px;
   align-items: center;
+}
+
+/* 모바일 */
+
+@media (max-width: 767px) {
+  .main {
+    padding: 0 32px;
+  }
 }

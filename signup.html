@@ -1,67 +1,84 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="style-signup.css">
-  <link rel="font-style" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>  
+    <link rel="stylesheet" href="sign-up.style.css" />
+    <link
+      rel="font-style"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+    />
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-  <title>Linkbrary</title>
-</head>
-<body>
-  <main class="main">
-    <header>
-      <a href="/">
-        <img class="header-logo" src="/images/signin/logo.svg" alt="Linkbrary-logo">
-      </a>
+    <title>Linkbrary</title>
+  </head>
+  <body>
+    <main class="main">
+      <header>
+        <a href="/">
+          <img
+            class="header-logo"
+            src="/images/signin/logo.svg"
+            alt="Linkbrary-logo"
+          />
+        </a>
         <div>
-        <span class="header-none">이미 회원이신가요?</span>
-        <a class="header-deco" href="/signin.html">로그인 하기</a>
-      </div>
-    </header>
-    <section class="contents">
-      <form action="http://localhost/signup/php" method="POST">
-        <section class="input">
-          <section class="input-email">
-            <label class="label" for="이메일">이메일</label>
-            <input class="email" type="email" placeholder="codeit@gmail.com">
-          </section>
-          <section class="input-password">
-            <label class="label" for="비밀번호">비밀번호</label>
-            <div class="input-binder">
-              <input class="password" type="password">
-              <!-- <img src="/images/eye-off.png" alt="eye-off"> -->
-              <i class="fas fa-eye" style="color: #4a4a4a;"></i>
-            </div>
-          </section>
-          <section class="input-password">
-            <label class="label" for="비밀번호">비밀번호 확인</label>
-            <div class="input-binder">
-              <input class="password" type="password">
-              <!-- <img src="/images/eye-off.png" alt="eye-off"> -->
-              <i class="fas fa-eye" style="color: #4a4a4a;"></i>
-            </div>
-          </section>
-        </section>
-        <p class="login">
-          <input class="button" type="submit" value="회원가입">
-        </p>
-      </form>
-      <div class="social-login">
-        <span>다른 방식으로 가입하기</span>
-        <div class="social-icons">
-          <a href="https://www.google.co.kr/" target="_blank">
-          <img src="/images/signup/Component 2.svg" alt="google-logo"></a>
-          <a href="https://www.kakaocorp.com/page/" target="_blank">
-          <img src="/images/signin/Component 3.svg" alt="kakao-logo"></a>
+          <span class="header-none">이미 회원이신가요?</span>
+          <a class="header-deco" href="/signin.html">로그인 하기</a>
         </div>
-      </div>
-    </section>
-  </main>
-</body>
+      </header>
+      <section class="contents">
+        <form action="http://localhost/signup/php" method="POST">
+          <section class="input">
+            <section class="input-email">
+              <label class="label" for="이메일">이메일</label>
+              <input
+                class="email"
+                type="email"
+                placeholder="codeit@gmail.com"
+              />
+            </section>
+            <section class="input-password">
+              <label class="label" for="비밀번호">비밀번호</label>
+              <div class="input-binder">
+                <input class="password" type="password" />
+                <!-- <img src="/images/eye-off.png" alt="eye-off"> -->
+                <i class="fas fa-eye" style="color: #4a4a4a"></i>
+              </div>
+            </section>
+            <section class="input-password">
+              <label class="label" for="비밀번호">비밀번호 확인</label>
+              <div class="input-binder">
+                <input class="password" type="password" />
+                <!-- <img src="/images/eye-off.png" alt="eye-off"> -->
+                <i class="fas fa-eye" style="color: #4a4a4a"></i>
+              </div>
+            </section>
+          </section>
+          <p class="login">
+            <input class="button" type="submit" value="회원가입" />
+          </p>
+        </form>
+        <div class="social-login">
+          <span>다른 방식으로 가입하기</span>
+          <div class="social-icons">
+            <a href="https://www.google.co.kr/" target="_blank">
+              <img src="/images/signup/Component 2.svg" alt="google-logo"
+            /></a>
+            <a href="https://www.kakaocorp.com/page/" target="_blank">
+              <img src="/images/signin/Component 3.svg" alt="kakao-logo"
+            /></a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
