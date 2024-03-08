@@ -1,8 +1,4 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  color: inherit;
-}
+@import "./global.css";
 
 body {
   background-color: #F0F6FF;
