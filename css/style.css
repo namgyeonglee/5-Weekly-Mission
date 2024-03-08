@@ -124,6 +124,7 @@ header {
 /* section 내부 contents 별 레이아웃 적용 */
 
 .section-contents-right {
+  grid-template-columns: 291px 550px;
   display: grid;
   column-gap: 157px;
   row-gap: 10px;
@@ -135,6 +136,7 @@ header {
 }
 
 .section-contents-left {
+  grid-template-columns: 550px 291px;
   display: grid;
   column-gap: 157px;
   row-gap: 10px;
