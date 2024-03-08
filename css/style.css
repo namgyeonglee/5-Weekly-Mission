@@ -1,18 +1,6 @@
 @import "./global.css";
 
-input {
-  cursor: pointer;
-}
-
 /* Desktop First */
-
-/* body 스타일 적용 */
-
-body {
-  font-size: 18px;
-  font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-}
-
 
 /* header 스타일 적용 */
 

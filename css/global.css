@@ -13,3 +13,7 @@
   --Gray4: #E7EFFB;
   --Gray5: #F0F6FF;
 }
+
+body {
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+}
