@@ -274,8 +274,13 @@ footer {
 
 @media (max-width: 767px) {
   .main {
-    padding: 70px 32px 0 32px;
+    padding: 0 32px;
     gap: 24px;
+  }
+
+  .main-h1 {
+    font-size: 2rem;
+    line-height: 2.625rem;
   }
 
   .main-h1-button {
@@ -306,6 +311,10 @@ footer {
   .section-text {
     width: 100%;
     margin: 0 auto;
+  }
+
+  .section-h2 {
+    font-size: 1.5rem;
   }
 
   .section-img {
