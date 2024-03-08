@@ -121,22 +121,31 @@ header {
   align-items: center;
 }
 
+/* section 내부 contents 별 레이아웃 적용 */
+
+.section-contents-right {
+  display: grid;
+  column-gap: 157px;
+  row-gap: 10px;
+  grid-template-areas: 
+    ". img"
+    "h2 img"
+    "normal img"
+    ". img";
+}
+
+.section-contents-left {
+  display: grid;
+  column-gap: 157px;
+  row-gap: 10px;
+  grid-template-areas: 
+    "img ."
+    "img h2"
+    "img normal"
+    "img .";
+}
 
 /* section 공통 스타일 적용 */
-
-.section-contents {
-  display: flex;
-  align-items: center;
-  gap: 157px;
-}
-
-.section-text {
-  display: flex;
-  width: 291px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-}
 
 .section-h2 {
   font-size: 48px;
@@ -145,6 +154,7 @@ header {
   line-height: normal;
   letter-spacing: -0.3px;
   color: var(--Black);
+  grid-area: h2;
 }
 
 .section-text-normal {
@@ -154,10 +164,12 @@ header {
   font-style: normal;
   font-weight: 400;
   line-height: 150%; /* 24px */
+  grid-area: normal;
 }
 
 .section-img {
   width: 550px;
+  grid-area: img;
 }
 
 
@@ -265,6 +277,29 @@ footer {
     width: 698px;
   }
 
+  .section__image--right-1 {
+    display: flex;
+    padding: 80px 250px 50px 250px;
+  }
+
+  .section__image--left {
+    padding: 50px 250px;
+  }
+  
+  .section__image--right-2 {
+    padding: 50px 250px;
+  }
+
+  .section-contents-right {
+    grid-template-columns: 262px 385px;
+    column-gap: 51px;
+  }
+
+  .section-contents-left {
+    grid-template-columns: 385px 262px;
+    column-gap: 51px;
+  }
+
   .section-img {
     width: 385px;
   }
@@ -301,16 +336,17 @@ footer {
     padding: 40px 32px;
   }
 
-  .section-contents {
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-  }
+  /* section 내부 contents 별 레이아웃 적용 */
 
-  .section-text {
-    width: 100%;
-    margin: 0 auto;
+  .section-contents-right,
+  .section-contents-left {
+    grid-template-columns: auto;
+    display: grid;
+    row-gap: 20px;
+    grid-template-areas: 
+      "h2 h2"
+      "img img"
+      "normal normal";
   }
 
   .section-h2 {
@@ -328,10 +364,6 @@ footer {
   .footer-contents {
     padding: 32px;
     flex-wrap: wrap;
-  }
-
-  /* 심화 요구사항 */
-  .section-contents .section-img {
-    order: 2;
+    gap: 60px;
   }
 }
