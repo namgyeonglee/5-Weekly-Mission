@@ -20,10 +20,15 @@ input {
 
 /* Desktop First */
 
+/* body 스타일 적용 */
+
 body {
   font-size: 18px;
   font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
 }
+
+
+/* header 스타일 적용 */
 
 header {
   display: flex;
@@ -66,6 +71,9 @@ header {
   line-height: normal;
 }
 
+
+/* main 스타일 적용 */
+
 .main {
   display: flex;
   padding: 70px 0 0 0;
@@ -78,13 +86,13 @@ header {
 
 .main-h1 {
   text-align: center;
+  white-space: pre-line;
   font-family: Pretendard;
   font-size: 64px;
   font-style: normal;
   font-weight: 700;
-  line-height: 80px; /* 125% */
+  line-height: 80px;
   color: var(--Black);
-  /* min-width: 576px; */
 }
 
 .main-h1-gradient {
@@ -111,26 +119,44 @@ header {
   line-height: normal;
 }
 
-.main1 {
+.main-img {
+  width: 1200px;
+}
+
+
+/* section 별 레이아웃 적용 */
+
+.section__image--right-1 {
   display: flex;
   padding: 120px 461px 50px 461px;
   justify-content: center;
   align-items: center;
 }
 
-.main1-contents,
-.main2-contents,
-.main3-contents,
-.main4-contents {
+.section__image--left {
+  display: flex;
+  padding: 50px 461px;
+  justify-content: center;
+  align-items: center;
+}
+
+.section__image--right-2 {
+  display: flex;
+  padding: 50px 461px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* section 공통 스타일 적용 */
+
+.section-contents {
   display: flex;
   align-items: center;
   gap: 157px;
 }
 
-.main1-text,
-.main2-text,
-.main3-text,
-.main4-text {
+.section-text {
   display: flex;
   width: 291px;
   flex-direction: column;
@@ -138,10 +164,7 @@ header {
   gap: 10px;
 }
 
-.main1-h2,
-.main2-h2,
-.main3-h2,
-.main4-h2 {
+.section-h2 {
   font-size: 48px;
   font-style: normal;
   font-weight: 700;
@@ -150,17 +173,7 @@ header {
   color: var(--Black);
 }
 
-.main1-h2-gradient {
-  background: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.main1-text-normal,
-.main2-text-normal,
-.main3-text-normal, 
-.main4-text-normal {
+.section-text-normal {
   color: #6B6B6B;
   font-family: Abel;
   font-size: 16px;
@@ -169,41 +182,43 @@ header {
   line-height: 150%; /* 24px */
 }
 
-.main2,
-.main4 {
-  display: flex;
-  padding: 50px 461px;
-  justify-content: center;
-  align-items: center;
+.section-img {
+  width: 550px;
 }
 
-.main2-h2-gradient {
+
+/* section 별 h2 그라디언트 적용 */
+
+.section1-h2-gradient {
+  background: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section2-h2-gradient {
   background: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.main3 {
-  display: flex;
-  padding: 50px 461px;
-  justify-content: center;
-  align-items: center;
-}
-
-.main3-h2-gradient {
+.section3-h2-gradient {
   background: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.main4-h2-gradient {
+.section4-h2-gradient {
   background: var(--Fandom-K-gra-blue-to-pink, linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+
+/* footer 스타일 적용 */
 
 footer {
   margin-top: 120px;
@@ -214,12 +229,8 @@ footer {
   padding: 32px 104px 108px 104px;
   justify-content: space-between;
   align-items: center;
-  flex-shrink: 0;
-  align-self: stretch;
   background: var(--The-julge-black, #111322);
-}
-
-.footer-text1 {
+  /* font 스타일 정의 */
   color: #676767;
   text-align: center;
   font-family: Acme;
@@ -229,12 +240,9 @@ footer {
   line-height: normal;
 }
 
-.footer-text2 {
-  display: flex;
-  width: 181.111px;
-  align-items: flex-start;
-  gap: 30px;
-  color: #CFCFCF;
+.footer-copyright {
+  color: #676767;
+  text-align: center;
   font-family: Acme;
   font-size: 16px;
   font-style: normal;
@@ -242,11 +250,23 @@ footer {
   line-height: normal;
 }
 
+.footer-terms {
+  color: #CFCFCF;
+  font-family: Acme;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: flex;
+  gap: 30px;
+}
+
 .footer-sns {
   display: flex;
   align-items: flex-start;
   gap: 12px;
 }
+
 
 /* Tablet */
 
@@ -263,17 +283,16 @@ footer {
     top: 0;
   }
 
-  main .line-break {
-    display: block;
-  }
-
   main .line-break-tablet-mobile {
     display: block;
   }
 
   .main-img {
-    width: 100%;
-    height: 343px;
+    width: 698px;
+  }
+
+  .section-img {
+    width: 385px;
   }
 }
 
@@ -285,13 +304,6 @@ footer {
     gap: 24px;
   }
 
-  .main1,
-  .main2,
-  .main3,
-  .main4 {
-    padding: 40px 32px;
-  }
-
   .main-h1-button {
     padding: 16px 62px;
     width: 100%;
@@ -301,36 +313,29 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    height: 100%;
+    width: 100%;
   }
 
-  .main1-contents,
-  .main2-contents,
-  .main3-contents,
-  .main4-contents {
+  .section__image--right-1,
+  .section__image--left,
+  .section__image--right-2 {
+    padding: 40px 32px;
+  }
+
+  .section-contents {
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
   }
 
-  .main1-text,
-  .main2-text,
-  .main3-text,
-  .main4-text {
+  .section-text {
     width: 100%;
     margin: 0 auto;
   }
 
-  .main1-img,
-  .main2-img,
-  .main3-img,
-  .main4-img {
+  .section-img {
     width: 100%;
-  }
-
-  main .line-break {
-    display: inline;
   }
 
   main .line-break-tablet-mobile {
@@ -338,15 +343,12 @@ footer {
   }
 
   .footer-contents {
-    padding: 32px 32px 108px 32px;
+    padding: 32px;
+    flex-wrap: wrap;
   }
 
   /* 심화 요구사항 */
-  .main2-contents .main2-img {
-    order: 2;
-  }
-
-  .main4-contents .main4-img {
+  .section-contents .section-img {
     order: 2;
   }
 }
