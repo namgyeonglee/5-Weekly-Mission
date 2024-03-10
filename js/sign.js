@@ -12,10 +12,14 @@ function validateEmailInput() {
       p.classList.add('input-error-message');
       p.textContent = '이메일을 입력해 주세요.';
       inputEmail.appendChild(p);
+
       // 박스 테두리 빨간색으로 변경
       emailInput.classList.add('error-border');
     }
   } else {
+    // 박스 테두리 빨간색으로 변경하는 클래스 제거
+    emailInput.classList.remove('error-border');
+    
     if (inputErrorMessage) {
       inputEmail.removeChild(inputErrorMessage);
     }
@@ -43,10 +47,14 @@ function validateEmailFormat() {
       p.classList.add('format-error-message');
       p.textContent = '올바른 이메일 주소가 아닙니다.';
       inputEmail.appendChild(p);
+
       // 박스 테두리 빨간색으로 변경
       emailInput.classList.add('error-border');
     }
   } else {
+    // 박스 테두리 빨간색으로 변경하는 클래스 제거
+    emailInput.classList.remove('error-border');
+
     if (formatErrorMessage) {
       inputEmail.removeChild(formatErrorMessage);
     }
@@ -71,10 +79,14 @@ function validatePasswordInput() {
       p.classList.add('password-input-error-message');
       p.textContent = '비밀번호를 입력해 주세요.';
       inputPassword.appendChild(p);
+
       // 박스 테두리 빨간색으로 변경
       passwordInput.classList.add('error-border');
     }
   } else {
+    // 박스 테두리 빨간색으로 변경하는 클래스 제거
+    passwordInput.classList.remove('error-border');
+
     if (passwordInputErrorMessage) {
       inputPassword.removeChild(passwordInputErrorMessage);
     }
