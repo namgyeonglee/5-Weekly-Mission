@@ -164,8 +164,8 @@ i {
 
 /* 에러 메시지 */
 
-.input-error-message,
-.password-input-error-message {
+.email-error-message,
+.password-error-message {
   margin: 6px 0 0 0;
   font-size: 14px;
   color: var(--Red);
@@ -174,11 +174,4 @@ i {
 
 input.error-border {
   border: 1px solid var(--Red);
-}
-
-.format-error-message {
-  margin: 6px 0 0 0;
-  font-size: 14px;
-  color: var(--Red);
-  text-align: left;
 }
