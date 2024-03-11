@@ -35,7 +35,8 @@
         </div>
       </header>
       <section class="contents">
-        <form action="http://localhost/login/php" method="POST">
+        <form>
+        <!-- <form action="http://localhost/login/php" method="POST"> -->
           <section class="input">
 
             <section class="input-email">
@@ -57,8 +58,9 @@
 
           </section>
 
-          <p class="login">
-            <input class="button" type="submit" value="로그인" />
+          <!-- 버튼 윗부분 마진과 버튼을 분리하고자 p 태그로 한번 더 감싸줌 -->
+          <p class="login"> 
+            <input class="button" type="button" value="로그인" />
           </p>
         </form>
 

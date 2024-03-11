@@ -19,7 +19,7 @@ function validateEmailInput() {
   } else {
     // 박스 테두리 빨간색으로 변경하는 클래스 제거
     emailInput.classList.remove('error-border');
-    
+
     if (inputErrorMessage) {
       inputEmail.removeChild(inputErrorMessage);
     }
@@ -94,3 +94,17 @@ function validatePasswordInput() {
 }  
 
 passwordInput.addEventListener('focusout', validatePasswordInput);
+
+
+// test ID/PW와 일치할 경우 로그인 버튼 클릭 시 folder 페이지로 이동
+
+const loginBtn = document.querySelector('.login .button');
+
+function goFolder() {
+  if (emailInput.value === "test@codeit.com" && passwordInput.value === "codeit101") {
+    let link = '/folder';
+    location.href = link;
+  }
+}
+
+loginBtn.addEventListener('click', goFolder);
