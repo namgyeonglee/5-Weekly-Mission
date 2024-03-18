@@ -107,29 +107,29 @@ passwordInput.addEventListener('focusin', resetPasswordErrorMessage);
 
 // *---* 로그인 시도 에러메시지 *---* //
 
-// test ID/PW와 일치할 경우 로그인 버튼 클릭 시 folder 페이지로 이동
-
 const loginBtn = document.querySelector('.login .button');
 
 function goFolder() {
+  // test ID/PW와 일치할 경우 로그인 버튼 클릭 시 folder 페이지로 이동
   if (emailInput.value === "test@codeit.com" && passwordInput.value === "codeit101") {
     let link = '/folder';
     location.href = link;
-  } else { 
-    // 이외의 이메일 ID 입력 후 로그인 버튼 클릭 시 에러 메시지 노출
-    emailP.textContent = '이메일을 확인해 주세요.';
-    inputEmail.appendChild(emailP);
-    
-    // 이메일 박스 테두리 빨간색으로 변경
-    emailInput.classList.add('error-border');
+    return;
+  } 
 
-    // 이외의 패스워드 입력 후 로그인 버튼 클릭 시 에러 메시지 노출
-    passwordP.textContent = '비밀번호를 확인해 주세요.';
-    inputPassword.appendChild(passwordP);
+  // 이외의 이메일 ID 입력 후 로그인 버튼 클릭 시 에러 메시지 노출
+  emailP.textContent = '이메일을 확인해 주세요.';
+  inputEmail.appendChild(emailP);
+  
+  // 이메일 박스 테두리 빨간색으로 변경
+  emailInput.classList.add('error-border');
 
-    // 패스워드 박스 테두리 빨간색으로 변경
-    passwordInput.classList.add('error-border');
-  }
+  // 이외의 패스워드 입력 후 로그인 버튼 클릭 시 에러 메시지 노출
+  passwordP.textContent = '비밀번호를 확인해 주세요.';
+  inputPassword.appendChild(passwordP);
+
+  // 패스워드 박스 테두리 빨간색으로 변경
+  passwordInput.classList.add('error-border');
 }
 
 loginBtn.addEventListener('click', goFolder);

@@ -97,6 +97,12 @@ const passwordErrorMessage = document.querySelector('.password-error-message');
 const passwordP = document.createElement('p');
 passwordP.classList.add('input--helper-text__error');
 
+const passwordFirstInput = document.querySelector('.password--first-input');
+const passwordSecondInput = document.querySelector('.password--second-input');
+const inputPasswordFirst = document.querySelector('.input-password--first');
+const inputPasswordSecond = document.querySelector('.input-password--second');
+
+
 // 비밀번호 값 입력했는지 확인하는 함수
 function validatePasswordInput() {
   if (!passwordInput.value) {
@@ -122,17 +128,32 @@ function resetPasswordErrorMessage() {
   passwordP.textContent = '';
 }
 
-// signup.html 한정 함수 추가) 비밀번호 유효성 검사 함수
+// 비밀번호 유효성 검사 함수
 function validatePassword() {
-  // 비밀번호 형식 검증
   if (passwordInput.value.length < 8 || !/[a-zA-Z]/.test(passwordInput.value) || !/[0-9]/.test(passwordInput.value)) {
+    // 첫번째 박스 아래 에러 메시지 노출
     passwordP.textContent = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.';
+    inputPasswordFirst.appendChild(passwordP);
+
+    // 첫번째 박스 테두리 빨간색으로 변경
+    passwordFirstInput.classList.add('error-border');  
+
   }
 }
 
-passwordInput.addEventListener('focusout', () => {
-  validatePasswordInput();
-  validatePassword();
-});
+// 비밀번호 값과 비밀번호 확인 값 일치하는지 확인하는 함수
+function validatePasswordConfirmation() {
+  if (!(passwordFirstInput.value === passwordSecondInput.value)) {
+    // 두번째 박스 아래 에러 메시지 노출
+    passwordP.textContent = '비밀번호가 일치하지 않아요.';
+    inputPasswordSecond.appendChild(passwordP);
 
+    // 두번째 박스 테두리 빨간색으로 변경
+    passwordSecondInput.classList.add('error-border');  
+  }
+}
+
+passwordInput.addEventListener('focusout', validatePasswordInput);
 passwordInput.addEventListener('focusin', resetPasswordErrorMessage);
+passwordFirstInput.addEventListener('focusout', validatePassword); 
+passwordSecondInput.addEventListener('focusout', validatePasswordConfirmation);
