@@ -5,7 +5,7 @@ const emailInput = document.querySelector('.email');
 const emailErrorMessage = document.querySelector('.email-error-message');
 
 const emailP = document.createElement('p');
-emailP.classList.add('error-message');
+emailP.classList.add('input--helper-text__error');
 
 // 이메일 값 입력했는지 확인하는 함수
 function validateEmailInput() {
@@ -38,18 +38,15 @@ function validateEmailFormat() {
 
   // 이메일 형식 검증
   const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  const isValidEmail = emailRegex.test(email);
 
   // 에러 메시지 처리
-  if (!isValidEmail) {
-    if (!emailErrorMessage) {
-      // 박스 아래 에러 메시지 노출
-      emailP.textContent = '올바른 이메일 주소가 아닙니다.';
-      inputEmail.appendChild(emailP);
+  if (!emailRegex.test(email)) {
+    // 박스 아래 에러 메시지 노출
+    emailP.textContent = '올바른 이메일 주소가 아닙니다.';
+    inputEmail.appendChild(emailP);
 
-      // 박스 테두리 빨간색으로 변경
-      emailInput.classList.add('error-border');
-    }
+    // 박스 테두리 빨간색으로 변경
+    emailInput.classList.add('error-border');
   } else {
     // 박스 테두리 빨간색으로 변경하는 클래스 제거
     emailInput.classList.remove('error-border');
@@ -58,6 +55,12 @@ function validateEmailFormat() {
     emailP.textContent = '';
   }
 }
+
+// 이메일 중복 검사하는 함수
+
+
+
+
 
 // 포커스 인 되면 에러메시지 리셋하는 함수
 function resetEmailErrorMessage() {
@@ -77,7 +80,7 @@ const passwordInput = document.querySelector('.password');
 const passwordErrorMessage = document.querySelector('.password-error-message');
 
 const passwordP = document.createElement('p');
-passwordP.classList.add('error-message');
+passwordP.classList.add('input--helper-text__error');
 
 // 비밀번호 값 입력했는지 확인하는 함수
 function validatePasswordInput() {
@@ -137,3 +140,5 @@ function goFolder() {
 }
 
 loginBtn.addEventListener('click', goFolder);
+
+
