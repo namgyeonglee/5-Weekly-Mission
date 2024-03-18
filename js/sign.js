@@ -10,14 +10,12 @@ emailP.classList.add('input--helper-text__error');
 // 이메일 값 입력했는지 확인하는 함수
 function validateEmailInput() {
   if (!emailInput.value) {
-    if (!emailErrorMessage) {
-      // 박스 아래 에러 메시지 노출
-      emailP.textContent = '이메일을 입력해 주세요.';
-      inputEmail.appendChild(emailP);
+    // 박스 아래 에러 메시지 노출
+    emailP.textContent = '이메일을 입력해 주세요.';
+    inputEmail.appendChild(emailP);
 
-      // 박스 테두리 빨간색으로 변경
-      emailInput.classList.add('error-border');
-    }
+    // 박스 테두리 빨간색으로 변경
+    emailInput.classList.add('error-border');
   } else {
     // 박스 테두리 빨간색으로 변경하는 클래스 제거
     emailInput.classList.remove('error-border');
