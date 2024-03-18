@@ -1,3 +1,11 @@
+// import {
+//   validateEmailInput,
+//   validateEmailFormat,
+//   resetEmailErrorMessage,
+//   validatePasswordInput,
+//   resetPasswordErrorMessage
+// } from "./sign.js";
+
 // *---* 이메일 에러메시지 *---* //
 
 const inputEmail = document.querySelector('.input-email');
@@ -58,9 +66,23 @@ function resetEmailErrorMessage() {
   emailP.textContent = '';
 }
 
+// signup.html 한정 함수 추가) 이메일 중복 검사하는 함수
+
+function checkEmailUnique() {
+  if (emailInput.value === 'test@codeit.com') { // 입력한 이메일 주소가 test@codeit.com 일 때
+    // 박스 아래 에러 메시지 노출
+    emailP.textContent = '이미 사용 중인 이메일입니다.';
+    inputEmail.appendChild(emailP);
+
+    // 박스 테두리 빨간색으로 변경
+    emailInput.classList.add('error-border');
+  }
+}
+
 emailInput.addEventListener('focusout', () => {
   validateEmailInput();
   validateEmailFormat();
+  checkEmailUnique();
 });
 
 emailInput.addEventListener('focusin', resetEmailErrorMessage);
@@ -100,36 +122,17 @@ function resetPasswordErrorMessage() {
   passwordP.textContent = '';
 }
 
-passwordInput.addEventListener('focusout', validatePasswordInput);
-passwordInput.addEventListener('focusin', resetPasswordErrorMessage);
-
-
-
-// *---* 로그인 시도 에러메시지 *---* //
-
-// test ID/PW와 일치할 경우 로그인 버튼 클릭 시 folder 페이지로 이동
-
-const loginBtn = document.querySelector('.login .button');
-
-function goFolder() {
-  if (emailInput.value === "test@codeit.com" && passwordInput.value === "codeit101") {
-    let link = '/folder';
-    location.href = link;
-  } else { 
-    // 이외의 이메일 ID 입력 후 로그인 버튼 클릭 시 에러 메시지 노출
-    emailP.textContent = '이메일을 확인해 주세요.';
-    inputEmail.appendChild(emailP);
-    
-    // 이메일 박스 테두리 빨간색으로 변경
-    emailInput.classList.add('error-border');
-
-    // 이외의 패스워드 입력 후 로그인 버튼 클릭 시 에러 메시지 노출
-    passwordP.textContent = '비밀번호를 확인해 주세요.';
-    inputPassword.appendChild(passwordP);
-
-    // 패스워드 박스 테두리 빨간색으로 변경
-    passwordInput.classList.add('error-border');
+// signup.html 한정 함수 추가) 비밀번호 유효성 검사 함수
+function validatePassword() {
+  // 비밀번호 형식 검증
+  if (passwordInput.value.length < 8 || !/[a-zA-Z]/.test(passwordInput.value) || !/[0-9]/.test(passwordInput.value)) {
+    passwordP.textContent = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.';
   }
 }
 
-loginBtn.addEventListener('click', goFolder);
+passwordInput.addEventListener('focusout', () => {
+  validatePasswordInput();
+  validatePassword();
+});
+
+passwordInput.addEventListener('focusin', resetPasswordErrorMessage);
