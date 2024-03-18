@@ -75,10 +75,10 @@ input.email {
   background: var(--Linkbrary-white, #FFF);
 }
 
-/* input:focus {
-  border: 1px solid red;
+.email:focus {
+  border: 1px solid var(--Primary);
   background: var(--Linkbrary-white, #FFF);
-} */
+}
 
 .input-binder {
   width: 100%;
@@ -97,10 +97,10 @@ input.password {
   background: var(--Linkbrary-white, #FFF);
 }
 
-/* .password:focus {
-  border: 1px solid var(--Linkbrary-primary-color, #6D6AFE);
+.password:focus {
+  border: 1px solid var(--Primary);
   background: var(--Linkbrary-white, #FFF);
-} */
+}
 
 i {
   position: absolute;
@@ -160,4 +160,17 @@ i {
   .main {
     padding: 0 32px;
   }
+}
+
+/* 에러 메시지 */
+
+.error-message {
+  margin: 6px 0 0 0;
+  font-size: 14px;
+  color: var(--Red);
+  text-align: left;
+}
+
+input.error-border {
+  border: 1px solid var(--Red);
 }
