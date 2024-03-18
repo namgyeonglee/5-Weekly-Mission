@@ -5,7 +5,7 @@ const emailInput = document.querySelector('.email');
 const emailErrorMessage = document.querySelector('.email-error-message');
 
 const emailP = document.createElement('p');
-emailP.classList.add('email-error-message');
+emailP.classList.add('error-message');
 
 // 이메일 값 입력했는지 확인하는 함수
 function validateEmailInput() {
@@ -77,7 +77,7 @@ const passwordInput = document.querySelector('.password');
 const passwordErrorMessage = document.querySelector('.password-error-message');
 
 const passwordP = document.createElement('p');
-passwordP.classList.add('password-error-message');
+passwordP.classList.add('error-message');
 
 // 비밀번호 값 입력했는지 확인하는 함수
 function validatePasswordInput() {

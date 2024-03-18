@@ -4,19 +4,20 @@
   box-sizing: border-box;
   margin: 0;
   color: inherit;
-  text-decoration: none; 
-  --Primary: #6D6AFE;
-  --Red: #FF5B56;
+  text-decoration: none;
+  --Primary: #6d6afe;
+  --Red: #ff5b56;
   --Black: #111322;
-  --White: #FFFFFF;
-  --Gray1: #3E3E43;
-  --Gray2: #9FA6B2;
-  --Gray3: #CCD5E3;
-  --Gray4: #E7EFFB;
-  --Gray5: #F0F6FF;
+  --White: #ffffff;
+  --Gray1: #3e3e43;
+  --Gray2: #9fa6b2;
+  --Gray3: #ccd5e3;
+  --Gray4: #e7effb;
+  --Gray5: #f0f6ff;
 }
 
 body {
-  font-size: 18px;
-  font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+    "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",
+    "Malgun Gothic", sans-serif;
 }

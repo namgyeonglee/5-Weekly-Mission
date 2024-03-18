@@ -164,8 +164,7 @@ i {
 
 /* 에러 메시지 */
 
-.email-error-message,
-.password-error-message {
+.error-message {
   margin: 6px 0 0 0;
   font-size: 14px;
   color: var(--Red);
