@@ -1,4 +1,4 @@
-import { togglePassword } from "./utils";
+import { togglePassword, } from "./utils.js";
 
 // *---* 이메일 에러메시지 *---* //
 
@@ -165,9 +165,7 @@ passwordToggleButton.addEventListener("click", () =>
   togglePassword(passwordInput, passwordToggleButton)
 );
 
-const PasswordSecondToggleButton = document.querySelector(
-  "#second-password-toggle"
-);
+const PasswordSecondToggleButton = document.querySelector("#second-password-toggle");
 PasswordSecondToggleButton.addEventListener("click", () =>
   togglePassword(passwordSecondInput, PasswordSecondToggleButton)
 );

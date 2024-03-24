@@ -115,30 +115,49 @@ passwordToggleButton.addEventListener("click", () =>
 
 const loginBtn = document.querySelector(".login .button");
 
-function goFolder() {
-  // test ID/PW와 일치할 경우 로그인 버튼 클릭 시 folder 페이지로 이동
-  if (
-    emailInput.value === "test@codeit.com" &&
-    passwordInput.value === "codeit101"
-  ) {
-    let link = "/folder";
-    location.href = link;
-    return;
+async function signIn() {
+  const email = "test@codeit.com";
+  const password = "sprint101";
+
+  const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      email,
+      password,
+    }),
+  });
+
+  if (response.ok) {
+    // 로그인 성공 시 /folder로 이동
+    if (emailInput.value === "test@codeit.com" && passwordInput.value === "sprint101") {
+      let link = "/folder";
+      location.href = link;
+      return;
+
+    } else {
+      // 이외의 이메일 ID 입력 후 로그인 버튼 클릭 시 에러 메시지 노출
+      emailP.textContent = "이메일을 확인해 주세요.";
+      inputEmail.appendChild(emailP);
+
+      // 이메일 박스 테두리 빨간색으로 변경
+      emailInput.classList.add("error-border");
+
+      // 이외의 패스워드 입력 후 로그인 버튼 클릭 시 에러 메시지 노출
+      passwordP.textContent = "비밀번호를 확인해 주세요.";
+      inputPassword.appendChild(passwordP);
+
+      // 패스워드 박스 테두리 빨간색으로 변경
+      passwordInput.classList.add("error-border");  
+    }
+
+  } else {
+    // 로그인 실패 시 오류 처리
+    const error = await response.json();
+    console.error("로그인 요청 실패:", error);
   }
-
-  // 이외의 이메일 ID 입력 후 로그인 버튼 클릭 시 에러 메시지 노출
-  emailP.textContent = "이메일을 확인해 주세요.";
-  inputEmail.appendChild(emailP);
-
-  // 이메일 박스 테두리 빨간색으로 변경
-  emailInput.classList.add("error-border");
-
-  // 이외의 패스워드 입력 후 로그인 버튼 클릭 시 에러 메시지 노출
-  passwordP.textContent = "비밀번호를 확인해 주세요.";
-  inputPassword.appendChild(passwordP);
-
-  // 패스워드 박스 테두리 빨간색으로 변경
-  passwordInput.classList.add("error-border");
 }
 
-loginBtn.addEventListener("click", goFolder);
+loginBtn.addEventListener("click", signIn);
