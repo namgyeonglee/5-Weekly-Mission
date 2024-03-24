@@ -61,23 +61,9 @@ function resetEmailErrorMessage() {
   emailP.textContent = "";
 }
 
-// signup.html 한정 함수 추가) 이메일 중복 검사하는 함수
-function checkEmailUnique() {
-  if (emailInput.value === "test@codeit.com") {
-    // 입력한 이메일 주소가 test@codeit.com 일 때
-    // 박스 아래 에러 메시지 노출
-    emailP.textContent = "이미 사용 중인 이메일입니다.";
-    inputEmail.appendChild(emailP);
-
-    // 박스 테두리 빨간색으로 변경
-    emailInput.classList.add("error-border");
-  }
-}
-
 emailInput.addEventListener("focusout", () => {
   validateEmailInput();
   validateEmailFormat();
-  checkEmailUnique();
 });
 emailInput.addEventListener("focusin", resetEmailErrorMessage);
 
@@ -87,6 +73,7 @@ const inputPassword = document.querySelector(".input-password");
 const inputPasswordSecond = document.querySelector(".input-password--second");
 
 const passwordInput = document.querySelector(".password");
+const passwordFirstInput = document.querySelector(".password--first-input");
 const passwordSecondInput = document.querySelector(".password--second-input");
 
 const passwordErrorMessage = document.querySelector(".password-error-message");
@@ -111,7 +98,7 @@ function validatePasswordInput() {
   }
 }
 
-// 포커스 인 되면 에러메시지 리셋하는 함수
+// 포커스 인 되면 박스 에러메시지 리셋하는 함수
 function resetPasswordErrorMessage() {
   passwordP.textContent = "";
 }
@@ -149,7 +136,7 @@ passwordInput.addEventListener("focusout", () => {
   validatePasswordInput();
   validatePassword();
 });
-passwordInput.addEventListener("focusin", resetPasswordErrorMessage);
+passwordFirstInput.addEventListener("focusin", resetPasswordErrorMessage);
 
 passwordSecondInput.addEventListener("focusout", () => {
   validatePasswordInput();
@@ -170,31 +157,77 @@ PasswordSecondToggleButton.addEventListener("click", () =>
   togglePassword(passwordSecondInput, PasswordSecondToggleButton)
 );
 
-// *---* 로그인 시도 에러메시지 *---* //
+// *---* 회원가입 시도 에러메시지 *---* //
 
 const loginBtn = document.querySelector(".login .button");
 
-function goFolder() {
-  // input 에 문제 없는 경우 로그인 버튼 클릭 시 folder 페이지로 이동
-  if (emailP.textContent === "" && passwordP.textContent === "") {
+async function signUp() {
+  const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      email: emailInput.value,
+      password: passwordInput.value
+    }),
+  });
+
+  if (response.ok) {
     let link = "/folder";
     location.href = link;
     return;
+
+  } else {
+    // 알 수 없는 에러 발생
+    const error = await response.json();
+    console.error("회원가입 요청 실패:", error);
   }
-
-  // 이외의 이메일 ID 입력 후 로그인 버튼 클릭 시 에러 메시지 노출
-  emailP.textContent = "이메일을 확인해 주세요.";
-  inputEmail.appendChild(emailP);
-
-  // 이메일 박스 테두리 빨간색으로 변경
-  emailInput.classList.add("error-border");
-
-  // 이외의 패스워드 입력 후 로그인 버튼 클릭 시 에러 메시지 노출
-  passwordP.textContent = "비밀번호를 확인해 주세요.";
-  inputPassword.appendChild(passwordP);
-
-  // 패스워드 박스 테두리 빨간색으로 변경
-  passwordInput.classList.add("error-border");
 }
 
-loginBtn.addEventListener("click", goFolder);
+async function checkEmailUnique() {
+  const response = await fetch("https://bootcamp-api.codeit.kr/api/check-email", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      email: emailInput.value
+    }),
+  });
+
+  if (response.ok) {
+    if (emailP.textContent === "" && passwordP.textContent === "") {
+      return signUp();
+
+    } else {
+      // 이외의 이메일 ID 입력 후 로그인 버튼 클릭 시 에러 메시지 노출
+      emailP.textContent = "이메일을 확인해 주세요.";
+      inputEmail.appendChild(emailP);
+
+      // 이메일 박스 테두리 빨간색으로 변경
+      emailInput.classList.add("error-border");
+
+      // 이외의 패스워드 입력 후 로그인 버튼 클릭 시 에러 메시지 노출
+      passwordP.textContent = "비밀번호를 확인해 주세요.";
+      inputPassword.appendChild(passwordP);
+
+      // 패스워드 박스 테두리 빨간색으로 변경
+      passwordInput.classList.add("error-border");
+    }
+
+  } else {
+    if (response.status === 409) {
+      // 이메일 중복 에러 메시지 표시
+      emailP.textContent = "이미 사용 중인 이메일입니다.";
+      inputEmail.appendChild(emailP);
+
+    } else {
+      // 알 수 없는 에러 발생
+      const error = await response.json();
+      console.error("이메일 중복 확인 실패:", error);
+    }
+  }
+}
+
+loginBtn.addEventListener("click", checkEmailUnique);
