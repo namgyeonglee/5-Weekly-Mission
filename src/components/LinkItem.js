@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
 import styles from "./LinkItem.module.css";
+import noImg from "../assets/card_basic_img.png"
 
 function LinkItem({ link }) {
   const dateTime = link.createdAt;
@@ -69,11 +70,21 @@ function LinkItem({ link }) {
     <Link to="/" target="_blank">
       <div className={styles.card}>
         <div className={styles.imgBox}>
+        
+        {link.imageSource ? (
           <img
             className={styles.cardImg}
             src={link.imageSource}
-            alt="임시텍스트"
+            alt={link.title}
           />
+        ) : (
+          <img
+          className={styles.cardImg}
+          src={noImg}
+          alt={link.title}
+          />
+        )}
+
         </div>
         <div className={styles.cardTexts}>
           <p className={styles.createdAt}>{getDiffFromNow()}</p>
