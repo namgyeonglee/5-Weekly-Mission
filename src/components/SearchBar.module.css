@@ -1,0 +1,28 @@
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 54px;
+  padding: 15px 16px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  background-color: var(--Gray6);
+}
+
+.form .searchIcon {
+  width: 14px;
+}
+
+.form .input {
+  flex: 1 1;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  background-color: inherit;
+}
+
+.form .input::placeholder {
+  color: #878787;
+}
