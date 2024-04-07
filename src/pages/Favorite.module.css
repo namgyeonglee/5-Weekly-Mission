@@ -33,6 +33,7 @@ ul.items {
   padding: 0;
   list-style: none;
   display: grid;
+  align-items: start;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 24px 20px;
 }
@@ -56,6 +57,7 @@ ul.items {
     display: grid;
     place-items: center;
     grid-template-columns: 1fr 1fr;
+    align-items: start;
   }
 
   .item {

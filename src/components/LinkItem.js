@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
 import styles from "./LinkItem.module.css";
-import noImg from "../assets/card_basic_img.png"
+import noImg from "../assets/card_basic_img.png";
+import kebab from "../assets/kebab.svg";
+import star from "../assets/star__state=Default.svg";
 
 function LinkItem({ link }) {
   const dateTime = link.created_at;
@@ -69,25 +71,27 @@ function LinkItem({ link }) {
   return (
     <Link to="/" target="_blank">
       <div className={styles.card}>
-        <div className={styles.imgBox}>
-        
-        {link.imageSource ? (
-          <img
-            className={styles.cardImg}
-            src={link.imageSource}
-            alt={link.title}
-          />
+        {link.image_source ? (
+          <div className={styles.imgBox}>
+            <img
+              className={styles.cardImg}
+              src={link.image_source}
+              alt={link.title}
+            />
+            <img className={styles.imgBoxStar} src={star} alt="star" />
+          </div>
         ) : (
-          <img
-          className={styles.cardImg}
-          src={noImg}
-          alt={link.title}
-          />
+          <div className={styles.imgBox}>
+            <img className={styles.cardImg} src={noImg} alt={link.title} />
+            <img className={styles.imgBoxStar} src={star} alt="star" />
+          </div>
         )}
 
-        </div>
         <div className={styles.cardTexts}>
-          <p className={styles.createdAt}>{getDiffFromNow()}</p>
+          <div className={styles.cardTextsFirstline}>
+            <p className={styles.createdAt}>{getDiffFromNow()}</p>
+            <img className={styles.kebab} src={kebab} alt="kebab" />
+          </div>
           <p className={styles.description}>{link.description}</p>
           <p className={styles.date}>{dateFormatted}</p>
         </div>
