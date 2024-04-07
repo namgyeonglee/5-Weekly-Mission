@@ -61,8 +61,8 @@ function FavoriteListPage() {
           <>
             <Warn
               className={styles.emptyList}
-              title="즐겨찾기 아티클이 없어요."
-              description="카탈로그에서 나에게 필요한 아티클을 찾아보세요."
+              title="일치하는 링크가 없습니다."
+              description=""
             />
           </>
         ) : (

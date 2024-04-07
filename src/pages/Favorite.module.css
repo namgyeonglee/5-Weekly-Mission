@@ -4,7 +4,7 @@
 }
 
 .header {
-  background-color: #F0F6FF;
+  background-color: #f0f6ff;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,7 +43,7 @@ ul.items {
 }
 
 .emptyList {
-  margin: 50px auto 30px;
+  margin-top: 40px;
 }
 
 @media (max-width: 1124px) {

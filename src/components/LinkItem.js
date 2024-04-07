@@ -4,7 +4,7 @@ import styles from "./LinkItem.module.css";
 import noImg from "../assets/card_basic_img.png"
 
 function LinkItem({ link }) {
-  const dateTime = link.createdAt;
+  const dateTime = link.created_at;
   const dateFormatted = format(dateTime, "yyyy. MM. dd");
 
   function getDiffFromNow() {

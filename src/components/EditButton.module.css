@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 6px;
+}
+
+.button {
+  margin: 0;
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  background: var(--White);
+  color: var(--Gray2);
+}

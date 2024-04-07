@@ -1,20 +1,12 @@
 .warn {
   text-align: center;
-}
-
-.icon {
-  display: block;
-  margin: 0 auto;
+  padding: 41px 0 35px 0;
 }
 
 .title {
-  margin: 20px auto 3px;
-  font-size: 20px;
-  font-weight: 500;
-}
-
-.big .title {
-  font-size: 24px;
+  margin: 41px 0 35px;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .description {
@@ -22,9 +14,4 @@
   font-weight: 500;
   line-height: 2.07;
   color: #878787;
-}
-
-.big .description {
-  font-size: 18px;
-  line-height: 1.61;
 }

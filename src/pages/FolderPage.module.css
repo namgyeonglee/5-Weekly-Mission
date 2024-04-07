@@ -1,0 +1,112 @@
+.container {
+  margin: 40px auto;
+  max-width: 1060px;
+}
+
+.header {
+  background-color: #F0F6FF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 320px 60px 320px;
+}
+
+.folders {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.folders__layout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  gap: 8px;
+}
+
+.folders__addFolder {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 4px;
+  border: 0px;
+  background: var(--White);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--Primary);
+}
+
+.folderInfo {
+  margin-top: 24px;
+  max-height: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.foldername {
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.2px;
+  margin: 0;
+}
+
+ul.items {
+  width: auto;
+  margin: 24px 0 40px 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  align-items: start;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px 20px;
+}
+
+.item {
+  width: 340px;
+  position: relative;
+}
+
+.emptyList {
+  margin-top: 40px;
+}
+
+@media (max-width: 1124px) {
+  .header {
+    padding: 20px 32px 60px 32px;
+  }
+
+  .container {
+    margin: 40px 32px;
+    width: auto;
+  }
+
+  ul.items {
+    display: grid;
+    place-items: center;
+    align-items: start;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .item {
+    width: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  ul.items {
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr;
+  }
+
+  .folders__layout {
+    display : none, block;
+  }
+}

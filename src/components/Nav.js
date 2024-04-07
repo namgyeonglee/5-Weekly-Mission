@@ -9,13 +9,15 @@ function Nav() {
   const [user, setUser] = useState([]);
 
   const handleLoad = async () => {
-    const user = await getUserInformation();
+    const body = await getUserInformation();
+    const userArray = body.data;
+    const user = userArray[0];
     setUser(user);
   }
 
   useEffect(() => {
     handleLoad();
-  }, []);
+  }, [user]);
 
   return (
     <div className={styles.nav}>
@@ -34,7 +36,7 @@ function Nav() {
           </>
         ) : (
           <div className={styles.userProfile}>
-            <img className={styles.userImg} src={user.profileImageSource} alt="사람" />
+            <img className={styles.userImg} src={user.image_source} alt={user.name}/>
             <p className={styles.userEmail} key={user.id}>{user.email}</p>
           </div>
         )}
