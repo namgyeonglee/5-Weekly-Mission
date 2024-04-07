@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from 'react-router-dom';
 import searchBarStyles from "../components/SearchBar.module.css";
-import { getHeaderInformation, getFavoriteList } from "../api";
+import { getHeaderInformation, getAllFavoriteList } from "../api";
 import Container from '../components/Container';
 import Warn from '../components/Warn';
 import LinkItem from '../components/LinkItem';
@@ -22,7 +22,7 @@ function FavoriteListPage() {
   const handleLoad = async () => {
     const header = await getHeaderInformation();
     const owner = header.owner;
-    const links = await getFavoriteList(keyword);
+    const links = await getAllFavoriteList(keyword);
     setHeader(header);
     setOwner(owner);
     setLinks(links);
