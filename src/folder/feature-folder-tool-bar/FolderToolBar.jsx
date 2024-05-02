@@ -5,6 +5,8 @@ import { FolderButton } from "folder/ui-folder-button";
 import { IconAndTextButton } from "sharing/ui-icon-and-text-button";
 import { ALL_LINKS_TEXT, BUTTONS } from "./constant";
 import { ALL_LINKS_ID } from "link/data-access-link/constant";
+import { Modal } from "folder/modal/Modal";
+import { useState } from "react";
 
 const cx = classNames.bind(styles);
 
@@ -13,6 +15,16 @@ export const FolderToolBar = ({ folders, selectedFolderId, onFolderClick }) => {
     ALL_LINKS_ID === selectedFolderId
       ? ALL_LINKS_TEXT
       : folders?.find(({ id }) => id === selectedFolderId)?.name;
+
+  const [modalOpen, setModalOpen] = useState(false);
+
+  function showModal() {
+    setModalOpen(true);
+  }
+
+  function closeModal() {
+    setModalOpen(false);
+  }
 
   return (
     <div className={cx("container")}>
@@ -33,7 +45,7 @@ export const FolderToolBar = ({ folders, selectedFolderId, onFolderClick }) => {
         ))}
       </div>
       <div className={cx("add-button")}>
-        <AddFolderButton />
+        <AddFolderButton onClick={showModal}/>
       </div>
       <h2 className={cx("folder-name")}>{folderName}</h2>
       {selectedFolderId !== ALL_LINKS_ID && (
@@ -43,6 +55,7 @@ export const FolderToolBar = ({ folders, selectedFolderId, onFolderClick }) => {
           ))}
         </div>
       )}
+      {modalOpen && (<Modal title="폴더 추가" button="추가하기" onClick={closeModal} />)}
     </div>
   );
 };
