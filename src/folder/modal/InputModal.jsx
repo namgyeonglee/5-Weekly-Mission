@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import closeIcon from "../../assets/close.svg";
+import ReactModal from "react-modal";
 
 const Background = styled.p`
   position: fixed;
@@ -7,7 +8,7 @@ const Background = styled.p`
   left: 0;
   bottom: 0;
   right: 0;
-  width: 1440px;
+  width: 100%;
   background-color: #000;
   opacity: 0.4;
   z-index: 100;
@@ -15,8 +16,8 @@ const Background = styled.p`
 
 const Layout = styled.div`
   border-radius: 15px;
-  border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
-  background: var(--Linkbrary-white, #FFF);
+  border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
+  background: var(--Linkbrary-white, #fff);
   z-index: 101;
   position: absolute;
   top: 50%;
@@ -48,9 +49,8 @@ const Input = styled.input`
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
-  background: var(--Linkbrary-white, #FFF);
-
+  border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
+  background: var(--Linkbrary-white, #fff);
 `;
 
 const Button = styled.button`
@@ -62,7 +62,7 @@ const Button = styled.button`
   align-items: center;
   gap: 10px;
   border-radius: 8px;
-  color: var(--Grey-Light, #F5F5F5);
+  color: var(--Grey-Light, #f5f5f5);
   font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
@@ -78,16 +78,26 @@ const Close = styled.img`
   cursor: pointer;
 `;
 
-export function Modal({ title, button, onClick }) {
+export const InputModal = ({ title, button, onSubmit, onClose }) => {
+  const handleClickSubmit = () => {
+    onSubmit();
+  };
+
+  const handleClickCancle = () => {
+    onClose();
+  };
+
   return (
-    <div style={{ positon: "relative" }}>
-      <Background />
-      <Layout>
-        <Title>{title}</Title>
-        <Input placeholder="내용 입력"/>
-        <Button>{button}</Button>
-        <Close src={closeIcon} alt="X" onClick={onClick}/>
-      </Layout>
-    </div>
+    <ReactModal isOpen>
+      <div style={{ positon: "relative" }}>
+        <Background />
+        <Layout>
+          <Title>{title}</Title>
+          <Input placeholder="내용 입력" />
+          <Button onClick={handleClickSubmit}>{button}</Button>
+          <Close src={closeIcon} alt="X" onClick={handleClickCancle} />
+        </Layout>
+      </div>
+    </ReactModal>
   );
-}
+};
