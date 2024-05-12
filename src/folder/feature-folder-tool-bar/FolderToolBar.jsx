@@ -9,6 +9,7 @@ import { useModals } from "folder/modal/useModal";
 import { InputModal } from "folder/modal/InputModal";
 import { Modals } from "folder/modal/Modals";
 import { ShareModal } from "folder/modal/ShareModal";
+import { DeleteModal } from "folder/modal/DeleteModal";
 
 const cx = classNames.bind(styles);
 
@@ -48,6 +49,17 @@ export const FolderToolBar = ({ folders, selectedFolderId, onFolderClick }) => {
         title: "폴더 공유",
         subtitle: folderName,
         shareLink: shareLink,
+      });
+    }
+
+    if (e.target.innerText === "삭제") {
+      openModal(DeleteModal, {
+        title: "폴더 삭제",
+        subtitle: folderName,
+        button: "삭제하기",
+        onSubmit: () => {
+          console.log("ffff");
+        },
       });
     }
   };
