@@ -18,6 +18,8 @@ export const FolderToolBar = ({ folders, selectedFolderId, onFolderClick }) => {
       ? ALL_LINKS_TEXT
       : folders?.find(({ id }) => id === selectedFolderId)?.name;
 
+  const shareLink = `${window.location.origin}/shared/${selectedFolderId}`;
+
   const { openModal } = useModals();
 
   const handleClick = (e) => {
@@ -44,10 +46,8 @@ export const FolderToolBar = ({ folders, selectedFolderId, onFolderClick }) => {
     if (e.target.innerText === "공유") {
       openModal(ShareModal, {
         title: "폴더 공유",
-        subtitle: "폴더명",
-        onSubmit: () => {
-          console.log("ffff");
-        },
+        subtitle: folderName,
+        shareLink: shareLink,
       });
     }
   };
